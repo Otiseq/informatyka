@@ -33,7 +33,7 @@ def ruletka():
             if a == liczba:
                 print("\033[35mHuge Jackpot!!! \033[39m")
                 if zaklad == 0:
-                    print("\033[32mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
+                    print("\033[36mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
                 zaklad = zaklad * 15
                 balans = balans + zaklad
                 print("\033[33mwygrywasz!\033[39m")
@@ -51,28 +51,38 @@ def ruletka():
                 if a == k:
                     print("\033[35mJackpot! \033[39m")
                     if zaklad == 0:
-                        print("\033[32mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
+                        print("\033[36mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
                     zaklad = zaklad * 2
                     balans = balans + zaklad
                     print("\033[33mwygrywasz!\033[39m")
                     print("\033[32mmasz teraz", balans, waluta, "\033[39m")
-                    if k == 1:
-                        print("wylosowany kolor to czerwony")
-                    else:
-                        print("wylosowanu kolor to czarny")
                 else:
-                    print("\033[31mi po majatku, przegrana \033[39m")
+                    if liczba == 1:
+                        print("\033[31mpieniążek stracony\033[39m")
+                        print("wylosowany kolor to \033[32mzielony \033[39m")
+                    elif k == 2:
+                        print("\033[31mpieniążek stracony\033[39m")
+                        print("wylosowany kolor to \033[30mczarny \033[39m")
+                    elif k == 1:
+                        print("\033[31mpieniążek stracony\033[39m")
+                        print("wylosowany kolor to \033[31mczerwony \033[39m")
             elif a == 3:
                 if liczba == 0:
                     print("\033[35mMEGA HUGE BIG JACKPOT!!!!!\033[39m")
                     if zaklad == 0:
-                        print("\033[32mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
+                        print("\033[36mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
                     zaklad = zaklad * 25
                     balans = balans + zaklad
-                    print("\033[35mwygrywasz!\033[39m")
-                    print("\033[35mmasz teraz", balans, waluta, "\033[39m")
+                    print("\033[33mwygrywasz!\033[39m")
+                    print("\033[32mmasz teraz", balans, waluta, "\033[39m")
                 else:
                     print("\033[31mdobra robota! znowu kasa przewalona\033[39m")
+                    if liczba != 0:
+                        if k == 2:
+                            print("wylosowany kolor to \033[30mczarny \033[39m")
+                        elif k == 1:
+                            print("wylosowany kolor to \033[31mczerwony \033[39m")
+
             else:
                 print("\033[31mod 1 do 3 prosze następnym razem\033[39m")
                 exit()
@@ -83,7 +93,7 @@ def ruletka():
             if a == k:
                 print("\033[35mJackpot!!!\033[39m")
                 if zaklad == 0:
-                        print("\033[32mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
+                    print("\033[36mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
                 zaklad = zaklad * 2
                 balans = balans + zaklad
                 print("\033[33mwygrywasz!\033[39m")
@@ -99,7 +109,7 @@ def ruletka():
                 if liczba > 0 and liczba < 13:
                     print("\033[35mJackpot!\033[39m")
                     if zaklad == 0:
-                        print("\033[32mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
+                        print("\033[36mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
                     zaklad = zaklad * 3
                     balans = balans + zaklad
                     print("\033[33mwygrywasz!\033[39m")
@@ -120,7 +130,7 @@ def ruletka():
                     print("\033[34mwylosowana liczba to", liczba, "\033[39m")
                 else:
                     print("\033[31mprzegrana znowu, kto wogule na to stawia?\033[39m")
-                    print("wylosowana liczba to", liczba)
+                    print("\033[34mwylosowana liczba to", liczba, "\033[39m")
             elif a == 3:
                 if liczba > 24 and liczba < 37:
                     print("\033[35mJackpot!\033[39m")
@@ -149,19 +159,19 @@ def ruletka():
                     print("\033[32mmasz teraz", balans, waluta, " \033[39m")
                 else:
                     print("\033[31mprzegrana kaska\033[39m")
+                    print("\033[34mwylosowana liczba to", liczba, "\033[39m")
             elif a == 2:
                 if liczba > 18 and liczba < 37:
                     print("\033[35mJackpot! \033[39m")
                     if zaklad == 0:
-                        print("\033[34mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
+                        print("\033[36mbrawo! masz swoje darmowe 0", waluta, "\033[39m")
                     zaklad = zaklad * 2
                     balans = balans + zaklad
                     print("\033[33mwygrywasz!\033[39m")
                     print("\033[32mmasz teraz", balans, waluta, " \033[39m")
                 else:
                     print("\033[31mprzegrana kaska\033[39m")
-
-
+                    print("\033[34mwylosowana liczba to", liczba, "\033[39m")
         else:
             print("nastepnym razem podaj liczbe od 1 do 5")
             break
@@ -173,11 +183,12 @@ def ruletka():
         elif balans <= 0:
             print("nie ma kasy, nie ma rozgrywki")
             break
+
+
 if __name__ == '__main__':
     ruletka()
 
 # Wiele inspiracji zostało zaciągniętych od Jana Zdanowskiego (dzieki ziomus kc)
-# Od kolegi Szymona Miązko nic nie brałem ale i tak kc
 
 # kolory:
 # BLACK    \033[30m
